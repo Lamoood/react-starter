@@ -4,7 +4,7 @@ import ProductCard from './ProductCard'
 function ProductList(props){
   const {products, addToCart} = props
   return(
-    <div className='w-2/3 bg-pink-200 ps-2'>
+    <div className='w-3/4 bg-pink-200 ps-2'>
       <h2 className='text-2xl rounded py-2'>Product List</h2>
       <div className='flex gap-3 flex-wrap'>
       {products.map(el => (

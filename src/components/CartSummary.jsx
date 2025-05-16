@@ -7,7 +7,7 @@ function CartSummary(props){
   const vat = total * 0.07
   const finalTotal = total + vat
   return(
-    <div className='w-2/3 bg-purple-300'>
+    <div className='w-1/4 bg-purple-300'>
       <h2 className='text-2xl rounded py-2'>Cart Items</h2>
       <div className='flex flex-col gap-2'>
         {carts.map(el =>(
