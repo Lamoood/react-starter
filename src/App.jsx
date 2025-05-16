@@ -1,9 +1,29 @@
+import Header from "./components/Header"
+import ProductList from "./components/ProductList"
+import CartSummary from "./components/CartSummary"
+import {useEffect, useState} from "react"
+
 function App(){
+  const [products, setProducts] = useState([])
+  const [carts, setCarts] = useState([])
+
+  const fetchProducts = () => {
+    fetch('http://localhost:8000/products')
+    .then(resp => resp.json())
+    .then(data => setProducts(data))
+  }
+
+  useEffect( () => {
+    fetchProducts()
+  }, [])
 
   return(
-    <div className="app">
-      <h1 className="text-3xl text-amber-300">Codecamp20</h1>
-      <button className="btn btn-primary">OK</button>
+    <div className="min-h-screen flex flex-col">
+      <Header itemCount={carts.length}/>
+      <div className="flex flex-1">
+        <ProductList products={products}/>
+        <CartSummary carts={carts}/>
+      </div>
     </div>
   )
 }
